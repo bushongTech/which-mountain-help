@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.parent {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+.child {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all .5s;
+}
+
+.bg-one {
+    background-image: url('../img/Girl-snowboarder.jpg');
+}
+
+.bg-two {
+    background-image: url('../img/Mountain.jpg');
+}
+
+.bg-three {
+    background-image: url('../img/Guy-snowboarder.jpg');
+}
+
+
+.child a {
+    display: none;
+    font-size: 35px;
+    color: #ffffff !important;
+    font-family: sans-serif;
+    text-align: center;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 50px;
+    cursor: pointer;
+    /*text-decoration: none;*/
+}
+
+.parent:hover .child, .parent:focus .child {
+    -ms-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.parent:hover .child:before, .parent:focus .child:before {
+    display: block;
+}
+
+.parent:hover a, .parent:focus a {
+    display: block;
+}
+
+.child:before {
+    content: "";
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(52,73,94,0.75);
+}
+
+.row {
+    margin-top: 10px;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+
+}
+
+.card {
+    margin: 15px;
+    padding-top: 5px;
+}
+
+.card img {
+    height: 33%;
+}
+
+#conditions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+#current-weather {
+    width: 85%;
+    height: 200px;
+    border: 1px solid black;
+    margin-top: 10px;
+    background-color: lightgray;
+}
+
+#five-day-forecast {
+    width: 85%;
+    height: 300px;
+    margin-top: 10px;
+}
+
+.forecast-days {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 80%
+}
+
+.forecast-day {
+    height: 90%;
+    width: 120px;
+    border: 1px solid black;
+    background-color: darkslateblue;
+    color: ghostwhite;
+}
+
+/* Media Queries */
+/* @media screen and (max-width: 960px) {
+    .parent {width: 100%; margin: 20px 0px}
+    .wrapper {padding: 20px 20px;}
+} */
+
