@@ -52,10 +52,10 @@ async def upload_tdms(
             "telemetry": telemetry_data
         }
 
-        # Post the JSON object to your external API
+        # Post the JSON object to API at /v1/tdms-uploader
         async with httpx.AsyncClient() as client:
             response = await client.post(
-                f"{API_BASE_URL}/tdms-uploader/upload-json",
+                f"{API_BASE_URL}/v1/tdms-uploader",
                 json=payload
             )
 
