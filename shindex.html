@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XBDE Monolith</title>
+  <link rel="stylesheet" href="/xbde/styles.css" />
+</head>
+<body>
+  <header>
+    <img src="/xbde/images/newLogo.png" alt="Company Logo" class="logo">
+    <h1>XBDE Monolith Dashboard</h1>
+    <p id="date"></p>
+  </header>
+
+  <aside id="service-buttons">
+    <!-- Buttons in alphabetical order -->
+    <button data-folder="cure-service">Cure GUI</button>
+    <button data-folder="liner-application-service">Liner Application GUI</button>
+    <button data-folder="liner-service">Liner GUI</button>
+    <button data-folder="material-service">Materials Database GUI</button>
+    <!-- <button data-folder="single_run">Motor Static Fire Analysis Dashboard</button> -->
+    <button data-folder="tdms-uploader">Static Fire Test Data Uploader</button>
+    <!-- <button data-folder="tensile_dashboard">Tensile Testing Dashboard</button> -->
+  </aside>
+
+  <main>
+    <iframe id="content-frame" src="" frameborder="0"></iframe>
+  </main>
+
+  <script src="/xbde/script.js"></script>
+</body>
+</html>
