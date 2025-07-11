@@ -47,13 +47,25 @@ app.mount("/tdms-uploader", StaticFiles(directory="tdms-uploader/public"), name=
 app.mount("/tensile_dashboard", StaticFiles(directory="tensile_dashboard/public"), name="tensile_dashboard")
 
 # -------------------------
-# GET requests: always use real API
+# Specific GET endpoints (always use PROD API)
 # -------------------------
-@app.get("/api/{endpoint_path:path}")
-async def proxy_get(endpoint_path: str, request: Request):
+@app.get("/api/v1/liner-batch/{liner_batch_id}")
+async def get_liner_batch(liner_batch_id: int, request: Request):
+    async with httpx.AsyncClient() as client:
+        response = await client.get(f"{PROD_API_BASE_URL}/v1/liner-batch/{liner_batch_id}")
+    return JSONResponse(status_code=response.status_code, content=response.json())
+
+@app.get("/api/v1/liner-batch")
+async def get_all_liner_batches(request: Request):
     params = dict(request.query_params)
     async with httpx.AsyncClient() as client:
-        response = await client.get(f"{PROD_API_BASE_URL}/{endpoint_path}", params=params)
+        response = await client.get(f"{PROD_API_BASE_URL}/v1/liner-batch", params=params)
+    return JSONResponse(status_code=response.status_code, content=response.json())
+
+@app.get("/api/v1/liner-batch-materials/{liner_batch_id}")
+async def get_liner_batch_materials(liner_batch_id: int, request: Request):
+    async with httpx.AsyncClient() as client:
+        response = await client.get(f"{PROD_API_BASE_URL}/v1/liner-batch-materials/{liner_batch_id}")
     return JSONResponse(status_code=response.status_code, content=response.json())
 
 # -------------------------
@@ -75,7 +87,6 @@ async def proxy_post(endpoint_path: str, request: Request):
 async def liner_submit(payload: dict):
     print("Received liner submission:", payload)
 
-    # Use mock API in development, real API in production
     target_api = DEV_API_BASE_URL if ENVIRONMENT == "development" else PROD_API_BASE_URL
 
     try:
