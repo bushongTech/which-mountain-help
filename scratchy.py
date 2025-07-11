@@ -6,16 +6,13 @@ import httpx
 import os
 from dotenv import load_dotenv
 
-# Load environment variables from .env
+# Load environment variables
 load_dotenv()
 
-# Determine environment
+# Environment variables
 ENVIRONMENT = os.getenv("ENVIRONMENT", "development")
 DEV_API_BASE_URL = os.getenv("DEV_API_BASE_URL")
 PROD_API_BASE_URL = os.getenv("PROD_API_BASE_URL")
-
-# Select API base URL based on environment
-API_BASE_URL = DEV_API_BASE_URL if ENVIRONMENT == "development" else PROD_API_BASE_URL
 
 app = FastAPI()
 
@@ -24,7 +21,7 @@ app = FastAPI()
 # -------------------------
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Replace with specific domains in production
+    allow_origins=["*"],  # Adjust for production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -50,20 +47,25 @@ app.mount("/tdms-uploader", StaticFiles(directory="tdms-uploader/public"), name=
 app.mount("/tensile_dashboard", StaticFiles(directory="tensile_dashboard/public"), name="tensile_dashboard")
 
 # -------------------------
-# Generic API Proxy Routes
+# GET requests: always use real API
 # -------------------------
 @app.get("/api/{endpoint_path:path}")
 async def proxy_get(endpoint_path: str, request: Request):
     params = dict(request.query_params)
     async with httpx.AsyncClient() as client:
-        response = await client.get(f"{API_BASE_URL}/{endpoint_path}", params=params)
+        response = await client.get(f"{PROD_API_BASE_URL}/{endpoint_path}", params=params)
     return JSONResponse(status_code=response.status_code, content=response.json())
 
+# -------------------------
+# POST requests: use mock API in development, real API in production
+# -------------------------
 @app.post("/api/{endpoint_path:path}")
 async def proxy_post(endpoint_path: str, request: Request):
     payload = await request.json()
+    target_api = DEV_API_BASE_URL if ENVIRONMENT == "development" else PROD_API_BASE_URL
+
     async with httpx.AsyncClient() as client:
-        response = await client.post(f"{API_BASE_URL}/{endpoint_path}", json=payload)
+        response = await client.post(f"{target_api}/{endpoint_path}", json=payload)
     return JSONResponse(status_code=response.status_code, content=response.json())
 
 # -------------------------
@@ -71,14 +73,15 @@ async def proxy_post(endpoint_path: str, request: Request):
 # -------------------------
 @app.post("/api/liner-service/submit")
 async def liner_submit(payload: dict):
-    # Print payload for verification
     print("Received liner submission:", payload)
 
-    # Forward to dev or prod API
+    # Use mock API in development, real API in production
+    target_api = DEV_API_BASE_URL if ENVIRONMENT == "development" else PROD_API_BASE_URL
+
     try:
         async with httpx.AsyncClient() as client:
             response = await client.post(
-                f"{API_BASE_URL}/liner/submit",  # Adjust endpoint path accordingly
+                f"{target_api}/liner/submit",
                 json=payload
             )
         return JSONResponse(status_code=response.status_code, content=response.json())
