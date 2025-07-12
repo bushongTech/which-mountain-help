@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TDMS Uploader</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>TDMS Uploader Form</h1>
+  </header>
+
+  <main>
+    <form id="test-form">
+      <div class="form-row">
+        <label for="program">Program</label>
+        <input type="text" name="program" id="program" required />
+      </div>
+
+      <div class="form-row">
+        <label for="articleType">Article Type</label>
+        <input type="text" name="articleType" id="articleType" required />
+      </div>
+
+      <div class="form-row">
+        <label for="articleId">Article ID</label>
+        <input type="text" name="articleId" id="articleId" required />
+      </div>
+
+      <div class="form-row">
+        <label for="testDate">Test Date</label>
+        <input type="datetime-local" name="testDate" id="testDate" required />
+      </div>
+
+      <div class="form-row">
+        <label for="testOperator">Test Operator</label>
+        <input type="text" name="testOperator" id="testOperator" required />
+      </div>
+
+      <div class="form-row">
+        <label for="testLocation">Test Location</label>
+        <input type="text" name="testLocation" id="testLocation" required />
+      </div>
+
+      <div class="form-row">
+        <label for="ambientTemp">Ambient Temperature</label>
+        <input type="number" name="ambientTemp" id="ambientTemp" required />
+      </div>
+
+      <div class="form-row">
+        <label for="ambientHumidity">Ambient Humidity</label>
+        <input type="number" name="ambientHumidity" id="ambientHumidity" required />
+      </div>
+
+      <div class="form-row">
+        <label for="file-input">Upload TDMS File</label>
+        <input type="file" id="file-input" accept=".tdms" required />
+      </div>
+
+      <div id="drop-zone">Or drag & drop your TDMS file here</div>
+
+      <div class="form-row buttons">
+        <button type="button" id="upload-btn" disabled>Upload</button>
+        <button type="button" id="reset-btn">Reset</button>
+      </div>
+    </form>
+  </main>
+
+  <div id="loading-overlay" class="hidden">
+    <div class="spinner"></div>
+    <p>Uploading and processing files...</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
