@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cure GUI</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>Cure GUI</h1>
+
+  <form id="cure-form">
+    <div class="form-row">
+      <label for="articleId">Article ID</label>
+      <input type="text" id="articleId" name="articleId" required />
+    </div>
+
+    <div class="form-row">
+      <label for="articleType">Article Type</label>
+      <input type="text" id="articleType" name="articleType" required />
+    </div>
+
+    <div class="form-row">
+      <label for="cureOvenId">Cure Oven ID</label>
+      <input type="text" id="cureOvenId" name="cureOvenId" required />
+    </div>
+
+    <div class="form-row">
+      <label for="cureOvenTemp">Cure Oven Temp (°F)</label>
+      <input type="number" id="cureOvenTemp" name="cureOvenTemp" required />
+    </div>
+
+    <div class="form-row">
+      <label for="cureOvenHumidity">Cure Oven Humidity (%)</label>
+      <input type="number" id="cureOvenHumidity" name="cureOvenHumidity" required />
+    </div>
+
+    <div class="form-row">
+      <label for="cureStartTime">Cure Start Time</label>
+      <input type="datetime-local" id="cureStartTime" name="cureStartTime" required />
+    </div>
+
+    <div class="form-row">
+      <label for="cureEndTime">Cure End Time</label>
+      <input type="datetime-local" id="cureEndTime" name="cureEndTime" required />
+    </div>
+
+    <div class="form-row">
+      <label>Cure Duration</label>
+      <p id="cureDuration">--</p>
+    </div>
+
+    <div class="form-row">
+      <label for="comments">Comments</label>
+      <textarea id="comments" name="comments" rows="4"></textarea>
+    </div>
+
+    <div class="form-row">
+      <button type="submit">Commit to Database</button>
+    </div>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>
