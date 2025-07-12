@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  mock-api:
+    build:
+      context: ./mock-api
+    container_name: mock-api
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+
+  xbde-monolith:
+    build: .
+    container_name: xbde-monolith
+    ports:
+      - "8090:8090"
+    env_file:
+      - .env
+    environment:
+      - ENVIRONMENT=development
+    depends_on:
+      - mock-api
+    restart: unless-stopped
