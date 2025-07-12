@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liner Service</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <form id="linerForm">
+      <fieldset id="requiredFields">
+        <div id="subFormTitle">Liner</div>
+
+        <label for="formulation-id">Formulation ID:</label>
+        <input type="text" id="formulation-id" name="formulation-id" /><br>
+
+        <label for="batch-number">Batch Number:</label>
+        <input type="text" id="batch-number" name="batch-number" /><br>
+
+        <label for="batch-size">Batch Size (lbs):</label>
+        <input type="number" id="batch-size" name="batch-size" /><br>
+
+        <label for="start-time">Mix Date and Start Time:</label>
+        <input type="datetime-local" id="start-time" name="start-time" /><br>
+
+        <label for="end-time">Mix Date and End Time:</label>
+        <input type="datetime-local" id="end-time" name="end-time" /><br>
+
+        <label for="humidity">Ambient Humidity (%):</label>
+        <input type="number" id="humidity" name="humidity" /><br>
+
+        <label for="building-humidity">Ambient Building Humidity (%):</label>
+        <input type="number" id="building-humidity" name="building-humidity" /><br>
+
+        <label for="mix-operator-liner">Mix Operator:</label>
+        <input type="text" id="mix-operator-liner" name="mix-operator-liner" /><br>
+
+        <button type="submit" id="addDetail">Add Details</button>
+      </fieldset>
+
+      <!-- Mix Setup Section -->
+      <fieldset id="mixSetup">
+        <div id="subFormTitle">Liner Mix Setup Details</div>
+
+        <label for="mixer-id">Mixer ID:</label>
+        <input type="text" id="mixer-id" name="mixer-id" /><br>
+
+        <label for="ambient-temp">Ambient Temperature (°F):</label>
+        <input type="number" id="ambient-temp" name="ambient-temp" /><br>
+
+        <label for="building-temp">Ambient Building Temperature (°F):</label>
+        <input type="number" id="building-temp" name="building-temp" /><br>
+
+        <label for="mix-comments">Mix Comments:</label>
+        <textarea id="mix-comments" name="mix-comments"></textarea><br>
+      </fieldset>
+
+      <!-- Batch Materials Section -->
+      <fieldset id="batchMaterials">
+        <div id="subFormTitle">Liner Batch Materials</div>
+
+        <label for="r45m-weight">R45M Weight (lbs):</label>
+        <input type="number" id="r45m-weight" name="r45m-weight" /><br>
+
+        <label for="r45m-lot">R45M Lot Number:</label>
+        <input type="text" id="r45m-lot" name="r45m-lot" /><br>
+
+        <label for="cb-weight">Carbon Black Weight (lbs):</label>
+        <input type="number" id="cb-weight" name="cb-weight" /><br>
+
+        <label for="cb-lot">Carbon Black Lot Number:</label>
+        <input type="text" id="cb-lot" name="cb-lot" /><br>
+
+        <label for="hx752-weight">HX752 Weight (lbs):</label>
+        <input type="number" id="hx752-weight" name="hx752-weight" /><br>
+
+        <label for="hx752-lot">HX752 Lot Number:</label>
+        <input type="text" id="hx752-lot" name="hx752-lot" /><br>
+
+        <label for="ddi-weight">DDI Weight (lbs):</label>
+        <input type="number" id="ddi-weight" name="ddi-weight" /><br>
+
+        <label for="ddi-lot">DDI Lot Number:</label>
+        <input type="text" id="ddi-lot" name="ddi-lot" /><br>
+
+        <label for="tpb-weight">TPB Weight (lbs):</label>
+        <input type="number" id="tpb-weight" name="tpb-weight" /><br>
+
+        <label for="tpb-lot">TPB Lot Number:</label>
+        <input type="text" id="tpb-lot" name="tpb-lot" /><br>
+
+        <label for="material-comments">Material Comments:</label>
+        <textarea id="material-comments" name="material-comments"></textarea><br>
+      </fieldset>
+
+      <!-- Batch Degas Section -->
+      <fieldset id="batchDegas">
+        <div id="subFormTitle">Liner Batch Degas</div>
+
+        <label for="degas-start">Degas Date and Start Time:</label>
+        <input type="datetime-local" id="degas-start" name="degas-start" /><br>
+
+        <label for="degas-end">Degas Date and End Time:</label>
+        <input type="datetime-local" id="degas-end" name="degas-end" /><br>
+
+        <label for="degas-total-time">Degas Total Time:</label>
+        <input type="text" id="degas-total-time" name="degas-total-time" /><br>
+
+        <label for="degas-temp">Degas Temperature (°F):</label>
+        <input type="number" id="degas-temp" name="degas-temp" /><br>
+
+        <label for="degas-building-temp">Degas Building Temperature (°F):</label>
+        <input type="number" id="degas-building-temp" name="degas-building-temp" /><br>
+
+        <label for="degas-pressure">Degas Chamber Pressure (Hg):</label>
+        <input type="number" id="degas-pressure" name="degas-pressure" /><br>
+
+        <label for="degas-comments">Degas Comments:</label>
+        <textarea id="degas-comments" name="degas-comments"></textarea><br>
+      </fieldset>
+
+      <button type="submit" id="submitForReview">Submit</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
