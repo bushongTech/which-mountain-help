@@ -48,7 +48,6 @@ header #date {
 .sidebar {
   background-color: #1a1a1a;
   padding: 1rem;
-  width: 220px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -64,7 +63,7 @@ header #date {
   font-size: 1rem;
   cursor: pointer;
   border-radius: 6px;
-  text-align: left;
+  text-align: center;
   transition: background-color 0.2s ease;
 }
 
