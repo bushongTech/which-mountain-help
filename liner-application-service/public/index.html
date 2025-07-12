@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liner Application Service</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="container">
+    <form id="linerApplicationForm">
+      <fieldset id="requiredFields">
+        <div id="subFormTitle">Liner Application</div>
+
+        <label for="liner-application-formulation-id">Liner Application Formulation ID:</label>
+        <input type="text" id="formulation-id" name="formulation-id" /><br>
+
+        <label for="liner-application-batch-number">Batch Number:</label>
+        <input type="text" id="batch-number" name="batch-number" /><br>
+
+        <label for="liner-application-batch-size">Batch Size (lbs):</label>
+        <input type="number" id="batch-size" name="batch-size" /><br>
+
+        <label for="start-time">Start Time:</label>
+        <input type="datetime-local" id="start-time" name="start-time" /><br>
+
+        <label for="end-time">End Time:</label>
+        <input type="datetime-local" id="end-time" name="end-time" /><br>
+
+        <label for="humidity">Building Humidity (%):</label>
+        <input type="number" id="humidity" name="humidity" /><br>
+
+        <label for="temperature">Building Temperature (f):</label>
+        <input type="number" id="temperature" name="temperature" /><br>
+
+        <label for="application-operator-liner">Liner Applicator:</label>
+        <input type="text" id="application-operator-liner" name="application-operator-liner" /><br>
+        
+      </fieldset>
+      
+      <label for="liner-application-comments">Optional Comments:</label>
+      <input type="text" id="liner-application-comments" name="liner-application-comments" /><br>
+      <button type="submit" id="submitForReview">Submit</button>
+      
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
