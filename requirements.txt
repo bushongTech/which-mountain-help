@@ -9,3 +9,4 @@ nptdms
 pandas
 # Environment management
 python-dotenv
+python-multipart
