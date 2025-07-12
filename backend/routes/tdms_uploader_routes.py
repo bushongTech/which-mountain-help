@@ -26,12 +26,12 @@ async def upload_tdms(
     ambient_humidity: float = Form(...)
 ):
     try:
-        # Read uploaded file into memory
+        # Read uploaded TDMS file into memory
         tdms_content = await file.read()
         tdms_file = TdmsFile.read(io.BytesIO(tdms_content))
         df = tdms_file.as_dataframe()
 
-        # Clean column names to use only the last segment
+        # Clean column names to keep only the last segment
         df.columns = [col.split('/')[-1] for col in df.columns]
 
         # Convert dataframe to list of dicts for telemetry data
@@ -52,7 +52,7 @@ async def upload_tdms(
             "telemetry": telemetry_data
         }
 
-        # Post the JSON object to API at /v1/tdms-uploader
+        # Post the JSON object to your external API at /v1/tdms-uploader
         async with httpx.AsyncClient() as client:
             response = await client.post(
                 f"{API_BASE_URL}/v1/tdms-uploader",
@@ -63,5 +63,5 @@ async def upload_tdms(
         return JSONResponse(status_code=response.status_code, content=response.json())
 
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"Error uploading TDMS data: {e}")
         return JSONResponse(content={"status": "error", "message": str(e)}, status_code=500)
