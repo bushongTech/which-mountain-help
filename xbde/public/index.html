@@ -4,27 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>XBDE</title>
-  <link rel="icon" type="image/x-icon" href="xbde/images/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="/xbde/images/favicon.ico">
   <link rel="stylesheet" href="/xbde/styles.css" />
 </head>
 <body>
-  <header>
-    <img src="/xbde/images/newLogo.png" alt="Company Logo" class="logo">
-    <h1>XBDE</h1>
-    <p id="date"></p>
-  </header>
+  <div id="header">
+    <img src="/xbde/images/newLogo.png" alt="Company Logo" id="logo" />
+    <div id="title">XBDE</div>
+    <div id="date"></div>
+  </div>
 
-  <aside id="service-buttons">
-    <button data-folder="cure-service">Cure GUI</button>
-    <button data-folder="liner-application-service">Liner Application GUI</button>
-    <button data-folder="liner-service">Liner GUI</button>
-    <button data-folder="material-service">Materials Database GUI</button>
-    <button data-folder="tdms-uploader">Static Fire Test Data Uploader</button>
-  </aside>
+  <div class="container">
+    <aside class="sidebar">
+      <button data-folder="cure-service">Cure GUI</button>
+      <button data-folder="liner-application-service">Liner Application GUI</button>
+      <button data-folder="liner-service">Liner GUI</button>
+      <button data-folder="material-service">Materials Database GUI</button>
+      <button data-folder="tdms-uploader">Static Fire Test Data Uploader</button>
+    </aside>
 
-  <main>
-    <iframe id="content-frame" src="" frameborder="0"></iframe>
-  </main>
+    <main id="service-display">
+      <iframe id="content-frame" src="" frameborder="0"></iframe>
+    </main>
+  </div>
 
   <script src="/xbde/script.js"></script>
 </body>
