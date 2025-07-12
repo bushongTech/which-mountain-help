@@ -11,30 +11,25 @@
 <body>
   <div class="container">
     <form id="cureForm">
-      <fieldset id="requiredFields">
-        <div id="subFormTitle">Cure Process Entry</div>
+      <h2>Cure Process Entry</h2>
 
-        <label for="tool-id">Tool ID:</label>
-        <input type="text" id="tool-id" name="tool-id" required />
+      <label for="cure-start-time">Cure Start Time:</label>
+      <input type="datetime-local" id="cure-start-time" name="cure-start-time" required />
 
-        <label for="cure-start-time">Cure Start Time:</label>
-        <input type="datetime-local" id="cure-start-time" name="cure-start-time" required />
+      <label for="cure-end-time">Cure End Time:</label>
+      <input type="datetime-local" id="cure-end-time" name="cure-end-time" required />
 
-        <label for="cure-end-time">Cure End Time:</label>
-        <input type="datetime-local" id="cure-end-time" name="cure-end-time" required />
+      <label for="oven-id">Oven ID:</label>
+      <input type="text" id="oven-id" name="oven-id" required />
 
-        <label for="oven-id">Oven ID:</label>
-        <input type="text" id="oven-id" name="oven-id" required />
-
-        <label for="operator">Operator:</label>
-        <input type="text" id="operator" name="operator" required />
-      </fieldset>
+      <label for="operator">Operator:</label>
+      <input type="text" id="operator" name="operator" required />
 
       <label for="comments">Optional Comments:</label>
       <input type="text" id="comments" name="comments" />
 
-      <label id="cureDurationLabel">Calculated Cure Duration:</label>
-      <div id="cureDuration">--</div>
+      <label for="cureDuration">Calculated Cure Duration:</label>
+      <input type="text" id="cureDuration" name="cureDuration" readonly />
 
       <button type="submit" id="submitForReview">Submit</button>
     </form>
