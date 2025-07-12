@@ -1,64 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <title>Cure GUI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cure Service</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
-  <h1>Cure GUI</h1>
+  <div class="container">
+    <form id="cureForm">
+      <fieldset id="requiredFields">
+        <div id="subFormTitle">Cure Process Entry</div>
 
-  <form id="cure-form">
-    <div class="form-row">
-      <label for="articleId">Article ID</label>
-      <input type="text" id="articleId" name="articleId" required />
-    </div>
+        <label for="tool-id">Tool ID:</label>
+        <input type="text" id="tool-id" name="tool-id" required />
 
-    <div class="form-row">
-      <label for="articleType">Article Type</label>
-      <input type="text" id="articleType" name="articleType" required />
-    </div>
+        <label for="cure-start-time">Cure Start Time:</label>
+        <input type="datetime-local" id="cure-start-time" name="cure-start-time" required />
 
-    <div class="form-row">
-      <label for="cureOvenId">Cure Oven ID</label>
-      <input type="text" id="cureOvenId" name="cureOvenId" required />
-    </div>
+        <label for="cure-end-time">Cure End Time:</label>
+        <input type="datetime-local" id="cure-end-time" name="cure-end-time" required />
 
-    <div class="form-row">
-      <label for="cureOvenTemp">Cure Oven Temp (°F)</label>
-      <input type="number" id="cureOvenTemp" name="cureOvenTemp" required />
-    </div>
+        <label for="oven-id">Oven ID:</label>
+        <input type="text" id="oven-id" name="oven-id" required />
 
-    <div class="form-row">
-      <label for="cureOvenHumidity">Cure Oven Humidity (%)</label>
-      <input type="number" id="cureOvenHumidity" name="cureOvenHumidity" required />
-    </div>
+        <label for="operator">Operator:</label>
+        <input type="text" id="operator" name="operator" required />
+      </fieldset>
 
-    <div class="form-row">
-      <label for="cureStartTime">Cure Start Time</label>
-      <input type="datetime-local" id="cureStartTime" name="cureStartTime" required />
-    </div>
+      <label for="comments">Optional Comments:</label>
+      <input type="text" id="comments" name="comments" />
 
-    <div class="form-row">
-      <label for="cureEndTime">Cure End Time</label>
-      <input type="datetime-local" id="cureEndTime" name="cureEndTime" required />
-    </div>
+      <label id="cureDurationLabel">Calculated Cure Duration:</label>
+      <div id="cureDuration">--</div>
 
-    <div class="form-row">
-      <label>Cure Duration</label>
-      <p id="cureDuration">--</p>
-    </div>
+      <button type="submit" id="submitForReview">Submit</button>
+    </form>
 
-    <div class="form-row">
-      <label for="comments">Comments</label>
-      <textarea id="comments" name="comments" rows="4"></textarea>
-    </div>
-
-    <div class="form-row">
-      <button type="submit">Commit to Database</button>
-    </div>
-  </form>
+    <div id="messageBox"></div>
+  </div>
 
   <script src="script.js"></script>
 </body>
+
 </html>

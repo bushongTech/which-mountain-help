@@ -14,37 +14,41 @@
       <fieldset id="requiredFields">
         <div id="subFormTitle">Liner Application</div>
 
-        <label for="liner-application-formulation-id">Liner Application Formulation ID:</label>
-        <input type="text" id="formulation-id" name="formulation-id" /><br>
+        <label for="formulation-id">Liner Application Formulation ID:</label>
+        <input type="text" id="formulation-id" name="formulation-id" required />
 
-        <label for="liner-application-batch-number">Batch Number:</label>
-        <input type="text" id="batch-number" name="batch-number" /><br>
+        <label for="batch-number">Batch Number:</label>
+        <input type="text" id="batch-number" name="batch-number" required />
 
-        <label for="liner-application-batch-size">Batch Size (lbs):</label>
-        <input type="number" id="batch-size" name="batch-size" /><br>
+        <label for="batch-size">Batch Size (lbs):</label>
+        <input type="number" id="batch-size" name="batch-size" required />
 
         <label for="start-time">Start Time:</label>
-        <input type="datetime-local" id="start-time" name="start-time" /><br>
+        <input type="datetime-local" id="start-time" name="start-time" required />
 
         <label for="end-time">End Time:</label>
-        <input type="datetime-local" id="end-time" name="end-time" /><br>
+        <input type="datetime-local" id="end-time" name="end-time" required />
 
         <label for="humidity">Building Humidity (%):</label>
-        <input type="number" id="humidity" name="humidity" /><br>
+        <input type="number" id="humidity" name="humidity" required />
 
         <label for="temperature">Building Temperature (f):</label>
-        <input type="number" id="temperature" name="temperature" /><br>
+        <input type="number" id="temperature" name="temperature" required />
 
         <label for="application-operator-liner">Liner Applicator:</label>
-        <input type="text" id="application-operator-liner" name="application-operator-liner" /><br>
-        
+        <input type="text" id="application-operator-liner" name="application-operator-liner" required />
       </fieldset>
-      
+
       <label for="liner-application-comments">Optional Comments:</label>
-      <input type="text" id="liner-application-comments" name="liner-application-comments" /><br>
+      <input type="text" id="liner-application-comments" name="liner-application-comments" />
+
+      <label id="cureDurationLabel">Calculated Cure Duration:</label>
+      <div id="cureDuration">--</div>
+
       <button type="submit" id="submitForReview">Submit</button>
-      
     </form>
+
+    <div id="messageBox"></div>
   </div>
 
   <script src="script.js"></script>

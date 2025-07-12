@@ -62,3 +62,20 @@ button {
 button:hover {
   background-color: #303f9f;
 }
+
+#cureDurationLabel {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+#cureDuration {
+  font-size: 1.25rem;
+  color: #ffd54f;
+  margin-bottom: 1rem;
+}
+
+#messageBox {
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
